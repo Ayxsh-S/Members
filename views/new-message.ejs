@@ -1,0 +1,7 @@
+<h2>Create new message</h2>
+<% if (errors.length) { errors.forEach(e => { %> <p style="color:red"><%= e.msg %></p> <% }) } %>
+<form method="POST" action="/messages/new">
+    <label>Title<input name="title" value="<%= formData.title||'' %>" /></label>
+    <label>Body<textarea name="body"><%= formData.body||'' %></textarea></label>
+    <button type="submit">Create</button>
+</form>

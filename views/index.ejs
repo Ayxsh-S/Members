@@ -1,0 +1,18 @@
+<h2>Messages</h2>
+<% messages.forEach(m => { %>
+    <article>
+        <h3><%= m.title %></h3>
+        <p><%= m.body %></p>
+        <% if (currentUser && (currentUser.is_member || currentUser.is_admin)) { %>
+            <p>By: <%= m.first_name %> <%= m.last_name %> on <%= new Date(m.created_at).toLocaleString() %></p>
+        <% } else { %>
+            <p>Author: (private to members)</p>
+        <% } %>
+        <% if (currentUser && currentUser.is_admin) { %>
+            <form method="POST" action="/messages/<%= m.id %>?_method=DELETE" style="display:inline">
+                <button type="submit">Delete</button>
+            </form>
+       <% } %>
+    </article>
+    <hr>
+<% }) %>

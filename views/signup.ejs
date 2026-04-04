@@ -1,0 +1,13 @@
+<h2>Sign up</h2>
+<% if (errors.length) { errors.forEach(e => { %>
+    <p style="color:red"><%= e.msg %></p>
+<% }) } %>
+<form method="POST" action="/signup">
+    <label>First name<input name="first_name" value="<%= formData.first_name||'' %>" /></label>
+    <label>Last name<input name="last_name" value="<%= formData.last_name||'' %>" /></label>
+    <label>Email<input name="email" value="<%= formData.email||'' %>" /></label>
+    <label>Password<input type="password" name="password" /></label>
+    <label>Confirm password<input type="password" name="confirmPassword" /></label>
+    <label>Admin passcode (optional)<input name="adminPasscode" /></label>
+    <button type="submit">Sign up</button>
+</form>

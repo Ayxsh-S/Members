@@ -1,0 +1,6 @@
+<h2>Join the club</h2>
+<% if (errors.length) { errors.forEach(e => { %> <p style="color:red"><%= e.msg %></p> <% }) } %>
+<form method="POST" action="/join">
+    <label>Secret password<input name="passcode" /></label>
+    <button type="submit">Enter</button>
+</form>
